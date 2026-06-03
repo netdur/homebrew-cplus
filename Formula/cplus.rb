@@ -1,33 +1,29 @@
 class Cplus < Formula
   desc "Experimental, safety-oriented systems programming language and toolchain"
   homepage "https://cplus-lang.dev"
-  url "https://github.com/netdur/cplus/archive/refs/tags/v0.0.13.tar.gz"
-  sha256 "f06a913f46a79006b4f6b7e04282590766233da93d3cea106c4beaa31d475e4a"
+  version "0.0.13"
+  url "https://github.com/netdur/cplus/releases/download/v0.0.13/cplus-aarch64-apple-darwin.tar.gz"
+  sha256 "ad151b458d8adb8a16aa10463bdb02644a249f367d31ba3bc5036f2422bb9118"
   license "MIT"
-  head "https://github.com/netdur/cplus.git", branch: "main"
 
-  depends_on "rust" => :build
+  # Prebuilt for the tested platform only: macOS / Apple Silicon.
+  depends_on :macos
+  depends_on arch: :arm64
 
   def install
-    # cpc shells out to `clang` at link time; cpc-lsp/cpc-bindgen are the
-    # editor + FFI tooling. Install all three from their workspace crates.
-    system "cargo", "install", *std_cargo_args(path: "cpc")
-    system "cargo", "install", *std_cargo_args(path: "cpc-lsp")
-    system "cargo", "install", *std_cargo_args(path: "cpc-bindgen")
+    bin.install "cpc", "cpc-lsp", "cpc-bindgen"
   end
 
   def caveats
     <<~EOS
-      `cpc` compiles to LLVM IR and shells out to `clang` to produce a native
-      binary, so building/running a program needs a C toolchain on PATH:
-        - macOS: Xcode Command Line Tools  (xcode-select --install)
-        - Linux: clang  (e.g. `brew install llvm` or your distro's clang)
-      The front-end-only commands (cpc check / --emit-ll / lsp / graph / query /
+      cpc compiles to LLVM IR and shells out to `clang` to produce a native
+      binary, so building/running a program needs Xcode Command Line Tools:
+        xcode-select --install
+      Front-end-only commands (cpc check / --emit-ll / lsp / graph / query /
       mcp / fmt / doc) work without clang.
 
-      Developed and tested against Apple clang 21.0.0 on macOS / Apple Silicon
-      (aarch64-apple-darwin). Other clang versions and targets may work but are
-      not yet part of the tested matrix.
+      Prebuilt for macOS / Apple Silicon (aarch64-apple-darwin), tested against
+      Apple clang 21.0.0.
     EOS
   end
 
