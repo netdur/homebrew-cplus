@@ -1,9 +1,9 @@
 class Cplus < Formula
   desc "Experimental, safety-oriented systems programming language and toolchain"
   homepage "https://cplus-lang.dev"
-  version "0.0.13"
-  url "https://github.com/netdur/cplus/releases/download/v0.0.13/cplus-aarch64-apple-darwin.tar.gz"
-  sha256 "ad151b458d8adb8a16aa10463bdb02644a249f367d31ba3bc5036f2422bb9118"
+  version "0.0.14"
+  url "https://github.com/netdur/cplus/releases/download/v0.0.14/cplus-aarch64-apple-darwin.tar.gz"
+  sha256 "89798767c48f8f10a2f8c909ea16c4c1fd3dd77cb4c7b7029b33c9fc198ff546"
   license "MIT"
 
   # Prebuilt for the tested platform only: macOS / Apple Silicon.
