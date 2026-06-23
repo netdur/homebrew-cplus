@@ -3,7 +3,7 @@ class Cplus < Formula
   homepage "https://cplus-lang.dev"
   version "0.0.25"
   url "https://github.com/netdur/cplus/releases/download/v0.0.25/cplus-aarch64-apple-darwin.tar.gz"
-  sha256 "05f93c4d53f2402d2f2c1e62dd6d6174dab844cb07be8ca70d2ab36dbeac4fe3"
+  sha256 "9ea7f6ea2f3d1f26941b14804aba8b43c17b725c3cb33e304b49b8590ce212c2"
   license "MIT"
 
   # Prebuilt for the tested platform only: macOS / Apple Silicon.
