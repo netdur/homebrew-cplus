@@ -1,9 +1,9 @@
 class Cplus < Formula
   desc "Experimental, safety-oriented systems programming language and toolchain"
   homepage "https://cplus-lang.dev"
-  version "0.0.26"
-  url "https://github.com/netdur/cplus/releases/download/v0.0.26/cplus-aarch64-apple-darwin.tar.gz"
-  sha256 "9d5e63a09ef845584fb2c53570c4818282ffb49f2a5c1c2def0f8b8ba649f627"
+  version "0.0.27"
+  url "https://github.com/netdur/cplus/releases/download/v0.0.27/cplus-aarch64-apple-darwin.tar.gz"
+  sha256 "d2edebfbd34d846e52ba98c6720ceaa2b7a700a6f3d13fda63bbe6a3c8106086"
   license "MIT"
 
   # Prebuilt for the tested platform only: macOS / Apple Silicon.
@@ -16,6 +16,10 @@ class Cplus < Formula
 
   def caveats
     <<~EOS
+      C+ is written for LLMs/agents. The full language reference is embedded in
+      the binary — run `cpc skill` for a dense, self-contained guide to writing
+      C+ (version-matched to this install, no network).
+
       cpc compiles to LLVM IR and shells out to `clang` to produce a native
       binary, so building/running a program needs Xcode Command Line Tools:
         xcode-select --install
